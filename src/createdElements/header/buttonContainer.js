@@ -6,11 +6,9 @@ import Regle from './buttonContainerElements/regle.js';
 
 class ButtonContainer extends React.Component{
   render(){
-    let divStyle = {
-      width: "100%"
-}
+
     return(
-      <div className="d-flex jc-space-around"style = {divStyle}>
+      <div className="d-flex jc-space-around  buttonContainer">
         <SoloButton/>
         <CoopButton/>
         <Score/>

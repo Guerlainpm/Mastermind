@@ -1,15 +1,127 @@
+*{
+  box-sizing: border-box;
+}
 header{
   border-bottom : solid 1px black;
   padding: 10px 5px;
-  min-height: 115px;
+  height: 135px;
 }
+
 main{
-  height: calc(100vh - 136px);
+  padding: 10px 10px;
+  flex-direction: column;
 }
 button{
   padding: 5px 15px;
 }
+button:hover{
+  color: #fff;
+  border:solid 1px #fff ;
+  background-color: #f08f8f;
+}
+.buttonContainer{
+  width: 100%;
+}
 .App{
+  height: 100vh;
+}
+.bothBoard{
+  width: 100%;
+  height: 100%;
+}
+.gameBoard , .triedResultBoard{
+  border-bottom: 1px solid black;
+  height: 100%;
+}
+
+.gameBoard{
+  width: 80%;
+}
+.triedResultBoard{
+  width: 20%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 5px 15px;
+}
+.indicator , .colors-picked, .color-chooser-indicator{
+  border-radius: 50%;
+}
+.indicator{
+  width: 10px;
+  height: 10px;
+}
+.colors-picked{
+  width: 30px;
+  height: 30px;
+}
+.color-chooser-indicator{
+  width: 20px;
+  height: 20px;
+}
+.color-chooser-container{
+    padding: 10px 20px;
+}
+
+@media screen and (min-width :768px){
+  main{
+    flex-direction: row;
+  }
+  .buttonContainer{
+    width: 70%;
+  }
+  .colorChooser-undo-validate-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .color-chooser-indicator{
+    width: 40px;
+    height: 40px;
+  }
+  .color-chooser-container{
+      padding: 10px 15px;
+  }
+  .undo-validate-buttonContainer{
+    padding: 10px;
+  }
+  button{
+    padding: 10px 20px;
+  }
+  .colorChooser-undo-validate-container{
+    flex: 1;
+  }
+}
+
+@media screen and (min-width :1024px){
+  main{
+    flex-direction: row;
+  }
+  .buttonContainer{
+    width: 70%;
+  }
+  .boardContainer{
+    width: 50%;
+    flex-grow: 0 !important;
+  }
+  .colorChooser-undo-validate-container{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .color-chooser-indicator{
+    width: 40px;
+    height: 40px;
+  }
+  .color-chooser-container{
+      padding: 10px 90px;
+  }
+  .undo-validate-buttonContainer{
+    padding: 10px 80px;
+  }
+
+  button{
+    padding: 10px 20px;
+  }
 }

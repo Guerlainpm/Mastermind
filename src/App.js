@@ -5,7 +5,7 @@ import Header from './createdElements/header/header.js'
 import Main from './createdElements/main/main.js'
 function App() {
   return (
-    <div className="App">
+    <div className="App d-flex fd-column">
       <Header/>
       <Main/>
     </div>
