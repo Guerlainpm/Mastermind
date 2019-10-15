@@ -9,18 +9,34 @@ class Main extends React.Component{
     super(props);
     this.state = {
       line:0,
-      index:0
+      index:0,
     }
+    this.game = [
+      ["","","",""],
+      ["","","",""],
+      ["","","",""],
+      ["","","",""],
+      ["","","",""],
+      ["","","",""],
+      ["","","",""],
+      ["","","",""],
+      ["","","",""],
+      ["","","",""]
+    ]
     this.handleClick = this.handleClick.bind(this);
   }
-  handleClick(){
-
+  handleClick(color){
+    this.game[this.state.line][this.state.index] = color;
+    this.setState({
+      index: this.state.index < 3 ? this.state.index + 1 : this.state.index,
+    });
+    console.log(this.state.bgColor);
   }
 
   createLines() {
       let lines = [];
       for (var i = 0; i < 10; i++) {
-        lines.push(<BothBoard key={i} selected={this.state.line === i} test={this.handleClick} index={this.state.index}/>)
+        lines.push(<BothBoard key={i} selected={this.state.line === i} index={this.state.index} lineColor={this.game[i]}/>)
       }
       return lines.reverse();
   }
@@ -34,11 +50,11 @@ class Main extends React.Component{
         </div>
 
         <div className="colorChooser-undo-validate-container">
-          <ColorChooser/>
-            <div className="d-flex jc-space-around undo-validate-buttonContainer">
-              <Undo/>
-              <Validate/>
-            </div>
+          <ColorChooser clicked={this.handleClick}/>
+          <div className="d-flex jc-space-around undo-validate-buttonContainer">
+            <Undo/>
+            <Validate/>
+          </div>
         </div>
 
       </main>

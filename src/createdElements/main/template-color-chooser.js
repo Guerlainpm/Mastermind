@@ -5,7 +5,7 @@ class Template extends React.Component {
 
     return (
       <div className={"color-chooser-indicator " + this.props.color} onClick={() => {
-        console.log(this.props.color);
+        this.props.clicked(this.props.color)
       }}></div>
     );
   }

@@ -13,6 +13,7 @@ main{
 }
 button{
   padding: 5px 15px;
+  outline: none
 }
 button:hover{
   color: #fff;

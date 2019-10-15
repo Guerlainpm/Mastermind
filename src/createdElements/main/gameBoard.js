@@ -4,7 +4,7 @@ class GameBoard extends React.Component{
   createColorPicked(){
     let colorPicked= [];
     for (var i = 0; i < 4; i++) {
-      colorPicked.push(<ColorPicked key={i} selected={this.props.selected && this.props.index === i} changeColor={this.props.changeColor}/>)
+      colorPicked.push(<ColorPicked key={i} selected={this.props.selected && this.props.index === i} lineColor={this.props.lineColor[i]}/>)
     }
     return colorPicked;
   }
