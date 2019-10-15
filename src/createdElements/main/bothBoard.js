@@ -7,7 +7,7 @@ class BothBoard extends React.Component{
 
     return(
       <div className ="d-flex bothBoard">
-        <GameBoard/>
+        <GameBoard index={this.props.index} selected={this.props.selected}/>
         <TriedResultBoard/>
       </div>
     );
