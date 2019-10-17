@@ -45,6 +45,7 @@ button:hover{
   width: 20%;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   flex-wrap: wrap;
   padding: 5px 15px;
 }

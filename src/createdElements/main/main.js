@@ -10,8 +10,8 @@ class Main extends React.Component{
     this.state = {
       line:0,
       index:0,
-      composition:["bg-color-red-2","bg-color-green-2","bg-color-cyan-3","bg-color-blue-2"],
-      compositionRandom:[]
+      composition:["bg-color-green-2","bg-color-green-2","bg-color-red-2","bg-color-red-2"],
+      compositionRandom:this.random()
     }
     this.game = [
       ["","","",""],
@@ -51,22 +51,23 @@ class Main extends React.Component{
   }
 
   compare(){
-    let bienPlacer = 0;
-    let malPlacer = 0;
+    let bienPlacer = ["","","",""];
+    let malPlacer = ["","","",""];
+
     for (let i = 0; i < this.state.composition.length; i++) {
       if (this.state.composition[i]===this.game[this.state.line][i]) {
-        bienPlacer++;
-        malPlacer--;
+        bienPlacer[i] = "bienPlacer";
       }
-    for (var y = 0; y < this.game[this.state.line].length; y++) {
-      if (this.game[this.state.line][i].includes(this.state.composition[y])) {
-       malPlacer++;
-     }
+    }
+    for (let j = 0; j < this.state.composition.length; j++) {
+      if (this.game[this.state.line].includes(this.state.composition[j]) && bienPlacer[j] !== "vrai") {
+        malPlacer[j] = "malPlacer";
+      }
     }
 
-    }
     console.log(bienPlacer,malPlacer);
   }
+
   validate(){
     if (this.game[this.state.line][this.state.index +1] === "") {
       console.log("Veuillez remplir la ligne en entier")
@@ -85,7 +86,11 @@ class Main extends React.Component{
 
   random(){
     let allColors = ["bg-color-red-2","bg-color-green-2","bg-color-cyan-3","bg-color-blue-2","bg-color-gray-2","bg-color-orange-2"];
-    console.log(Math.floor(Math.random() * allColors.length));
+    let randomColorCHoosed=[];
+    for (var i = 0; i < 4; i++) {
+      randomColorCHoosed.push(allColors[Math.floor(Math.random() * allColors.length)]);
+    }
+    return randomColorCHoosed;
   }
 
   createLines() {
@@ -97,7 +102,7 @@ class Main extends React.Component{
   }
 
   render(){
-    this.random();
+
     return(
       <main className ="d-flex fg-1">
         <div className ="d-flex fd-column fg-1 boardContainer">
