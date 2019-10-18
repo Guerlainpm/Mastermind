@@ -51,22 +51,33 @@ class Main extends React.Component{
   }
 
   compare(){
-    let bienPlacer = ["","","",""];
-    let malPlacer = ["","","",""];
-
-    for (let i = 0; i < this.state.composition.length; i++) {
-      if (this.state.composition[i]===this.game[this.state.line][i]) {
-        bienPlacer[i] = "bienPlacer";
+    let bienPlacer = 0;
+    let malPlacer = 0;
+    let arr = this.state.composition.map(e => e);
+    for (let i = 0; i < this.game[this.state.line].length; i++) {
+      let choice = this.game[this.state.line][i];
+      if (arr.includes(choice)) {
+        arr[arr.indexOf(choice)] = "";
+        malPlacer++
       }
     }
-    for (let j = 0; j < this.state.composition.length; j++) {
-      if (this.game[this.state.line].includes(this.state.composition[j]) && bienPlacer[j] !== "vrai") {
-        malPlacer[j] = "malPlacer";
+    for (let i = 0; i < this.game[this.state.line].length; i++) {
+      let choice = this.game[this.state.line][i];
+      if (this.state.composition[i]===choice) {
+        bienPlacer++;
+        malPlacer--;
       }
+    }
+    if (bienPlacer = ["bienPlacer","bienPlacer","bienPlacer","bienPlacer"]) {
+      alert("gg")
+    }
+    if (this.state.line === 9 && bienPlacer !== ["bienPlacer","bienPlacer","bienPlacer","bienPlacer"]) {
+     alert("Pauvre fou tu a perdu")
     }
 
     console.log(bienPlacer,malPlacer);
   }
+
 
   validate(){
     if (this.game[this.state.line][this.state.index +1] === "") {
