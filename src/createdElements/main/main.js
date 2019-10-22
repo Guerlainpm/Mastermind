@@ -20,7 +20,7 @@ class Main extends React.Component{
           <ColorChooser clicked={this.props.handleClick}/>
           <div className="d-flex jc-space-around undo-validate-buttonContainer">
             <Undo undo={this.props.undo}/>
-            <Validate validate={this.props.validate}/>
+            <Validate validate={this.props.validate} showRemplire={this.props.showRemplire}/>
           </div>
         </div>
 

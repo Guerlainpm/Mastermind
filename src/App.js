@@ -3,13 +3,15 @@ import './App.css';
 import './style.min.css'
 import Header from './createdElements/header/header.js'
 import Main from './createdElements/main/main.js'
-import BothBoard from './createdElements/main/bothBoard.js';
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       afficheScore: false,
+      afficheWin:false,
+      afficheLoose:false,
+      afficheRemplire:false,
       score:0,
       line:0,
       index:0,
@@ -40,6 +42,9 @@ class App extends React.Component {
       ]
     }
     this.showScore = this.showScore.bind(this);
+    this.showWin = this.showWin.bind(this);
+    this.showLoose = this.showLoose.bind(this);
+    this.showRemplire = this.showRemplire.bind(this);
     this.calculScore = this.calculScore.bind(this)
     this.handleClick = this.handleClick.bind(this);
     this.undo = this.undo.bind(this);
@@ -91,10 +96,12 @@ class App extends React.Component {
 
   validate(){
       if (this.state.game[this.state.line][this.state.index +1] === "") {
-        alert("Veuillez remplir la ligne en entier")
+        this.showRemplire()
+        console.log(1);
       }
       else if (this.state.game[this.state.line][this.state.index] === "") {
-        alert("Veuillez remplir la ligne en entier")
+        this.showRemplire()
+        console.log(2);
       }
       else{
          if (this.state.line !== 9) {
@@ -123,7 +130,7 @@ class App extends React.Component {
 
     console.log(newResult);
     if (compareResult[0] === 4) {
-      alert("gg")
+      this.showWin()
 
       this.setState({
         line:0,
@@ -157,7 +164,7 @@ class App extends React.Component {
       this.calculScore()
     }
     if (this.state.line === 9 && compareResult[0] !== 4) {
-     alert("Pauvre fou tu a perdu");
+     this.showLoose()
      this.setState({
        line:0,
        index:0,
@@ -191,7 +198,6 @@ class App extends React.Component {
    }
   }
 
-
   random(){
     let allColors = ["bg-color-red-2","bg-color-green-2","bg-color-cyan-3","bg-color-blue-2","bg-color-gray-2","bg-color-orange-2"];
     let randomColorCHoosed=[];
@@ -215,15 +221,34 @@ class App extends React.Component {
 }
 
   showScore() {
-  this.setState({
-    afficheScore: !this.state.afficheScore
-  });
-}
+    this.setState({
+      afficheScore: !this.state.afficheScore
+    });
+  }
+
+  showWin() {
+    this.setState({
+      afficheWin: !this.state.afficheWin
+    });
+  }
+
+  showLoose() {
+    this.setState({
+      afficheLoose: !this.state.afficheLoose
+    });
+  }
+
+  showRemplire() {
+    this.setState({
+      afficheRemplire: !this.state.afficheRemplire
+    });
+  }
+
 
   render(){
     return (
     <div className="App d-flex fd-column">
-      <Header score={this.state.score} afficheScore={this.state.afficheScore} showScore={this.showScore}/>
+      <Header score={this.state.score} afficheScore={this.state.afficheScore} showScore={this.showScore} afficheWin={this.state.afficheWin} showWin={this.showWin} showScore={this.showScore} afficheLoose={this.state.afficheLoose} showLoose={this.showLoose} afficheRemplire={this.state.afficheRemplire} showRemplire={this.showRemplire}/>
       <Main result={this.state.result} undo={this.undo} validate={this.validate} createLines={this.state.game} handleClick={this.handleClick} score={this.score} currentLine={this.state.line} index={this.state.index}/>
     </div>
   );}
