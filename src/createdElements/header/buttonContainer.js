@@ -11,7 +11,7 @@ class ButtonContainer extends React.Component{
       <div className="d-flex jc-space-around  buttonContainer">
         <SoloButton/>
         <CoopButton/>
-        <Score/>
+        <Score showScore={this.props.showScore}/>
         <Regle/>
       </div>
     );

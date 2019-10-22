@@ -1,17 +1,19 @@
 import React from 'react';
+import PointResult from './pointResult'
 
 class TriedResultBoard extends React.Component{
   constructor(props){
     super(props);
-    this.template = [];
-    for (var i = 0; i < 4; i++) {
-      this.template.push(<div className="indicator bd-color-gray-4" key={i}></div>)
-    }
   }
   render(){
     return(
       <div className ="triedResultBoard bg-color-red-7 ">
-        {this.template}
+
+      <PointResult result={this.props.result[0]} key={0}/>
+      <PointResult result={this.props.result[1]} key={1}/>
+      <PointResult result={this.props.result[2]} key={2}/>
+      <PointResult result={this.props.result[3]} key={3}/>
+
       </div>
     );
   }

@@ -1,5 +1,6 @@
 *{
   box-sizing: border-box;
+  font-family: 'Varela Round', sans-serif;
 }
 header{
   border-bottom : solid 1px black;
@@ -19,6 +20,12 @@ button:hover{
   color: #fff;
   border:solid 1px #fff ;
   background-color: #f08f8f;
+}
+i{
+  font-size: 40px
+}
+i:hover{
+  color: #fff
 }
 .lineSelected{
   background-color: #fff !important;
@@ -67,7 +74,36 @@ button:hover{
 .color-chooser-container{
     padding: 10px 20px;
 }
-
+.showScore{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  display: none;
+}
+.show{
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(201, 201, 201, 0.58)
+}
+.block{
+  width: 80%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.fermer{
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+.score{
+  font-size: 20px;
+}
 @media screen and (min-width :768px){
   main{
     flex-direction: row;
@@ -95,6 +131,13 @@ button:hover{
   }
   .colorChooser-undo-validate-container{
     flex: 1;
+  }
+  .score{
+    font-size: 30px;
+  }
+  .block{
+    width: 50%;
+    height: 50%;
   }
 }
 
