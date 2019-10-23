@@ -3,11 +3,19 @@
   font-family: 'Varela Round', sans-serif;
 }
 header{
+      flex-direction: column;
   border-bottom : solid 1px black;
   padding: 10px 5px;
-  height: 135px;
+  height: 145px;
 }
-
+h1{
+  margin-bottom: 0;
+  font-size: 20px
+}
+h2{
+  margin-bottom: 0;
+    font-size: 15px
+}
 main{
   padding: 10px 10px;
   flex-direction: column;
@@ -27,11 +35,19 @@ i{
 i:hover{
   color: #fff
 }
+input{
+  padding: 10px 5px;
+  font-size: 20px;
+  margin: 15px 0px;
+}
 .lineSelected{
   background-color: #fff !important;
 }
 .buttonContainer{
-  width: 100%;
+  width: 50%;
+}
+.title{
+  width: 50%;
 }
 .App{
   height: 100vh;
@@ -60,8 +76,8 @@ i:hover{
   border-radius: 50%;
 }
 .indicator{
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
 }
 .colors-picked{
   width: 30px;
@@ -88,6 +104,23 @@ i:hover{
   align-items: center;
   background-color: rgba(201, 201, 201, 0.58)
 }
+
+.showName{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  background-color: rgba(201, 201, 201, 0.58);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.hide{
+  display: none;
+}
+
 .block{
   width: 80%;
   height: 50%;
@@ -105,11 +138,26 @@ i:hover{
   font-size: 20px;
 }
 @media screen and (min-width :768px){
+  header{
+    display: flex;
+    flex-direction: row;
+  }
   main{
     flex-direction: row;
   }
+  h1{
+    margin-bottom: 0;
+    font-size: 30px
+  }
+  h2{
+    margin-bottom: 0;
+      font-size: 25px
+  }
   .buttonContainer{
-    width: 70%;
+    width: 100%;
+  }
+  .title{
+    width: 100%;
   }
   .colorChooser-undo-validate-container{
     display: flex;
@@ -144,9 +192,6 @@ i:hover{
 @media screen and (min-width :1024px){
   main{
     flex-direction: row;
-  }
-  .buttonContainer{
-    width: 70%;
   }
   .boardContainer{
     width: 50%;

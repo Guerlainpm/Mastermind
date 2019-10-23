@@ -8,7 +8,7 @@ class ShowRemplire extends React.Component  {
         <div className="fermer" onClick={
           this.props.showRemplire
         }><i className="far fa-times-circle"></i></div>
-          <div className="score">ShowRemplire</div>
+          <div className="score">Il faut remplire la ligne</div>
         </div>
       </section>
     );

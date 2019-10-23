@@ -12,9 +12,11 @@ class App extends React.Component {
       afficheWin:false,
       afficheLoose:false,
       afficheRemplire:false,
+      afficheName:false,
       score:0,
       line:0,
       index:0,
+      value:"",
       compositionRandom:this.random(),
       game : [
         ["","","",""],
@@ -51,6 +53,8 @@ class App extends React.Component {
     this.validate = this.validate.bind(this);
     this.compare = this.compare.bind(this);
     this.random = this.random.bind(this)
+    this.sendInputValue = this.sendInputValue.bind(this)
+    this.getValue = this.getValue.bind(this)
     }
 
   handleClick(color){
@@ -97,11 +101,10 @@ class App extends React.Component {
   validate(){
       if (this.state.game[this.state.line][this.state.index +1] === "") {
         this.showRemplire()
-        console.log(1);
       }
       else if (this.state.game[this.state.line][this.state.index] === "") {
         this.showRemplire()
-        console.log(2);
+
       }
       else{
          if (this.state.line !== 9) {
@@ -112,7 +115,6 @@ class App extends React.Component {
       }
       this.rightWrongPlaceResult();
     }
-    console.log(this.state.compositionRandom)
   }
 
   rightWrongPlaceResult(){
@@ -121,14 +123,13 @@ class App extends React.Component {
     for (var i = 0; i < compareResult[0]; i++) {
       newResult[this.state.line].push("bg-color-green-2")
     }
-    for (var i = 0; i < compareResult[1]; i++) {
+    for (var j = 0; j < compareResult[1]; j++) {
       newResult[this.state.line].push("bg-color-orange-2")
     }
     this.setState({
       result: newResult
     });
 
-    console.log(newResult);
     if (compareResult[0] === 4) {
       this.showWin()
 
@@ -215,7 +216,7 @@ class App extends React.Component {
   }
   else {
     this.setState((state) => {
-      return {score: this.state.score + (9 - this.state.line)};
+      return {score: this.state.score + (10 - this.state.line)};
     });
   }
 }
@@ -244,11 +245,25 @@ class App extends React.Component {
     });
   }
 
+  getValue(event){
+    this.setState({
+      value: event.target.value
+    });
+  }
+
+  sendInputValue(event){
+    if (this.state.value.length >= 3) {
+      this.setState({
+        afficheName: !this.state.afficheName
+      });
+    }
+    event.preventDefault()
+  }
 
   render(){
     return (
     <div className="App d-flex fd-column">
-      <Header score={this.state.score} afficheScore={this.state.afficheScore} showScore={this.showScore} afficheWin={this.state.afficheWin} showWin={this.showWin} showScore={this.showScore} afficheLoose={this.state.afficheLoose} showLoose={this.showLoose} afficheRemplire={this.state.afficheRemplire} showRemplire={this.showRemplire}/>
+      <Header score={this.state.score} afficheScore={this.state.afficheScore} showScore={this.showScore} afficheWin={this.state.afficheWin} showWin={this.showWin} afficheLoose={this.state.afficheLoose} showLoose={this.showLoose} afficheRemplire={this.state.afficheRemplire} showRemplire={this.showRemplire} afficheName={this.state.afficheName} sendInputValue={this.sendInputValue} value={this.state.value} getValue={this.getValue}/>
       <Main result={this.state.result} undo={this.undo} validate={this.validate} createLines={this.state.game} handleClick={this.handleClick} score={this.score} currentLine={this.state.line} index={this.state.index}/>
     </div>
   );}
