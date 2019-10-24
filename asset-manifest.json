@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Mastermind/static/css/main.9c15fa03.chunk.css",
+    "main.js": "/Mastermind/static/js/main.aef18612.chunk.js",
+    "main.js.map": "/Mastermind/static/js/main.aef18612.chunk.js.map",
+    "runtime-main.js": "/Mastermind/static/js/runtime-main.a362968b.js",
+    "runtime-main.js.map": "/Mastermind/static/js/runtime-main.a362968b.js.map",
+    "static/js/2.4b3a2b8e.chunk.js": "/Mastermind/static/js/2.4b3a2b8e.chunk.js",
+    "static/js/2.4b3a2b8e.chunk.js.map": "/Mastermind/static/js/2.4b3a2b8e.chunk.js.map",
+    "index.html": "/Mastermind/index.html",
+    "precache-manifest.b42b7cd45f9604393e0e15e6eeda2b2a.js": "/Mastermind/precache-manifest.b42b7cd45f9604393e0e15e6eeda2b2a.js",
+    "service-worker.js": "/Mastermind/service-worker.js",
+    "static/css/main.9c15fa03.chunk.css.map": "/Mastermind/static/css/main.9c15fa03.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a362968b.js",
+    "static/js/2.4b3a2b8e.chunk.js",
+    "static/css/main.9c15fa03.chunk.css",
+    "static/js/main.aef18612.chunk.js"
+  ]
+}
