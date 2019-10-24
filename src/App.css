@@ -3,9 +3,7 @@
   font-family: 'Varela Round', sans-serif;
 }
 header{
-      flex-direction: column;
-  border-bottom : solid 1px black;
-  padding: 10px 5px;
+  flex-direction: column;
   height: 145px;
 }
 h1{
@@ -39,6 +37,19 @@ input{
   padding: 10px 5px;
   font-size: 20px;
   margin: 15px 0px;
+  border: none;
+  outline: none
+}
+input[type="submit"]{
+  border-radius: 10px;
+}
+input[type="submit"]:hover{
+  background-color: #f08f8f;
+  color: #fff;
+  border: solid 1px #fff
+}
+.bienvenue{
+  text-align: center;
 }
 .lineSelected{
   background-color: #fff !important;
@@ -55,10 +66,7 @@ input{
 .bothBoard{
   width: 100%;
   height: 100%;
-}
-.gameBoard , .triedResultBoard{
   border-bottom: 1px solid black;
-  height: 100%;
 }
 
 .gameBoard{
@@ -122,6 +130,7 @@ input{
 }
 
 .block{
+  border-radius: 10px;
   width: 80%;
   height: 50%;
   display: flex;
@@ -141,6 +150,8 @@ input{
   header{
     display: flex;
     flex-direction: row;
+    border-bottom : solid 1px black;
+    padding: 10px 5px;
   }
   main{
     flex-direction: row;

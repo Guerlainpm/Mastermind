@@ -6,8 +6,8 @@ class BothBoard extends React.Component{
   render(){
 
     return(
-      <div className ="d-flex bothBoard">
-        <GameBoard index={this.props.index} selected={this.props.selected} lineColor={this.props.lineColor}/>
+      <div className ={"d-flex bothBoard bg-color-gray-7"  + (this.props.selected ? " lineSelected":'')}>
+        <GameBoard index={this.props.index} lineColor={this.props.lineColor}/>
         <TriedResultBoard result={this.props.result}/>
       </div>
     );

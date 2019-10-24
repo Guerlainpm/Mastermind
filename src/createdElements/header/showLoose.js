@@ -8,7 +8,7 @@ class ShowLoose extends React.Component  {
           <div className="fermer" onClick={
             this.props.showLoose
           }><i className="far fa-times-circle"></i></div>
-          <div className="score">Pauvre fou. Tu a perdu</div>
+          <div className="score">Pauvre fou. Tu as perdu</div>
         </div>
       </section>
     );

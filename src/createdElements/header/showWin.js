@@ -8,7 +8,7 @@ class ShowWin extends React.Component  {
           <div className="fermer" onClick={
           this.props.showWin
           }><i className="far fa-times-circle"></i></div>
-          <div className="score">Tu as gagner.</div>
+          <div className="score">Tu as gagné.</div>
           </div>
       </section>
     );
